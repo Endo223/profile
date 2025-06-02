@@ -1,0 +1,70 @@
+body {
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+}
+
+.profile{
+    text-align: center; 
+}
+.UmaShika{
+    max-width: 175px;
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+}
+
+h1{
+    margin: 0 auto;
+    width: 300px;
+    height: 80px;
+    font-family:serif;
+    color:brown;
+    text-shadow:
+    -1px -1px 0 yellow,
+    1px -1px 0 yellow,
+    -1px 1px 0 yellow,
+    1px 1px 0 yellow;
+}
+
+.introduce{
+    text-align: center;
+    color:white;
+    text-shadow:
+    -1px -1px 0 red,
+    1px -1px 0 red,
+    -1px 1px 0 red,
+    1px 1px 0 red;
+    border-radius:50%;
+}
+
+h2{
+    width: ;
+    height: ;
+    color: #4b23ff;
+        text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
+    text-align: center; 
+}
+
+.dajare {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  gap: 20px;
+}
+
+.box {
+  width: 120px;                /* 横幅 */
+  height: 100ox;              /* 縦長 */
+  border: 2px solid #333;     /* 枠線 */
+  justify-content: center; 
+  background-color: aliceblue;
+  text-align: center;   
+  display: flex; 
+  font-size: 16px;
+  font-family: sans-serif;
+   align-items: center;/* 縦中央揃え ←これが必要！ */
+  text-align: center; 
+}
