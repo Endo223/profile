@@ -2,9 +2,13 @@ body {
   background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
 }
 
-.profile{
-    text-align: center; 
+.jin {
+  width: fit-content; /* コンテンツ幅に合わせる */
+  margin: 0 auto;     /* 左右マージン自動で中央寄せ */
+  position: relative; /* 文字の絶対配置の基準 */
+  text-align: center; /* 中央揃え */
 }
+
 .UmaShika{
     max-width: 175px;
     display: block;
@@ -12,18 +16,37 @@ body {
     border-radius: 50%;
 }
 
-h1{
-    margin: 0 auto;
-    width: 300px;
-    height: 80px;
-    font-family:serif;
-    color:brown;
-    text-shadow:
-    -1px -1px 0 yellow,
-    1px -1px 0 yellow,
-    -1px 1px 0 yellow,
-    1px 1px 0 yellow;
+.profile, .profile2 {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  font-family: serif;
+  white-space: nowrap;
+  margin: 0;
 }
+
+.profile {
+  color: transparent;
+  -webkit-text-stroke: 4px yellow;
+  z-index: 1;
+}
+
+.profile2 {
+  color: brown;
+  z-index: 2;
+}
+
+
+.text-outline {
+  position: relative;
+  font-size: 48px;
+  font-weight: bold;
+  color: white; /* 本体の文字色 */
+  display: inline-block;
+}
+
 
 .introduce{
     text-align: center;
