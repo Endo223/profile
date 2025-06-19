@@ -1,12 +1,54 @@
 body {
   background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  padding-top: 80px;
 }
 
+/* --- ここから追加・変更 --- */
+
+/* ① ヘッダー自体のスタイル */
+.ue {
+  position: fixed; /* ヘッダーを画面上部に固定 */
+  top: 0;          /* 上端に配置 */
+  left: 0;         /* 左端に配置 */
+  width: 100%;     /* 横幅を画面いっぱいに */
+  background-color: rgba(4, 188, 133, 0.6); /* 背景を少し透明な白に */
+  padding: 5px 0; /* ヘッダー内の上下に余白 */
+  text-align: center; /* 中のボタンたちを中央揃えに */
+  z-index: 1000;      /* 他の要素より手前に表示 */
+}
+
+/* ③ ボタンのスタイルを修正 */
+/* 以前の #gradient-toggle-button のスタイルをこちらに書き換えます */
+#gra{
+  /* position: fixed などは不要になったので削除 */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  
+  /* 複数のボタンを並べた時に少し隙間を空ける */
+  margin: 0 10px;
+}
+
+#En{
+    padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  
+  /* 複数のボタンを並べた時に少し隙間を空ける */
+  margin: 0 10px;
+}
+
+/* 画像と名前のエリアのスタイル */
 .jin {
-  width: fit-content; /* コンテンツ幅に合わせる */
-  margin: 0 auto;     /* 左右マージン自動で中央寄せ */
-  position: relative; /* 文字の絶対配置の基準 */
-  text-align: center; /* 中央揃え */
+  position: relative;     /* ← 超重要！名前を重ねるための基準点 */
+  display: inline-block;
+  margin-bottom: 10px;    /* 自己紹介文との余白 */
 }
 
 .UmaShika{
@@ -38,32 +80,66 @@ body {
   z-index: 2;
 }
 
+/* --- 自己紹介文のエリアのスタイル --- */
 
-.text-outline {
-  position: relative;
-  font-size: 48px;
-  font-weight: bold;
-  color: white; /* 本体の文字色 */
-  display: inline-block;
+/* prollをプロフィール全体のコンテナとしてスタイリング */
+.proll {
+  text-align: center;      /* 中身の要素をまとめて中央揃えに */
+  margin-bottom: -5px;     /* 下のコンテンツとの余白 */
 }
 
+/* --- ここからが新しい自己紹介文のスタイル --- */
 
-.introduce{
-    text-align: center;
-    color:white;
-    text-shadow:
-    -1px -1px 0 red,
-    1px -1px 0 red,
-    -1px 1px 0 red,
-    1px 1px 0 red;
-    border-radius:50%;
+/* introduceは、部屋たちをまとめるだけの箱 */
+.introduce {
+  margin-top: 10px; /* 名前の下からの余白を調整 */
+}
+
+/* .oheya（専用の部屋）のスタイル */
+.oheya {
+  position: relative; /* ← これが最重要！中の幽霊の基準点（部屋）になる */
+  height: 30px;       /* 部屋の高さを確保し、次の行と重なるのを防ぐ */
+}
+
+/* 全ての自己紹介テキスト（幽霊）に共通のスタイル */
+.yoko, .yoko2, .eco, .eco2 {
+  position: absolute; /* 幽霊になる */
+  top: 0;             /* 部屋の上端を基準に */
+  left: 50%;          /* 部屋の左から50%の位置に */
+  transform: translateX(-50%); /* 中央揃えにする */
+  
+  /* 以下は既存のスタイル */
+  font-size: 24px;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.yoko {
+  color: transparent;
+  -webkit-text-stroke: 2px red;
+  z-index: 1;
+}
+
+.yoko2 {
+  color: black; 
+  z-index: 2;
+}
+
+.eco {
+  color: transparent;
+  -webkit-text-stroke: 2px red;
+  z-index: 1;
+}
+.eco2 {
+  color: black; 
+  z-index: 2;
 }
 
 h2{
     width: ;
     height: ;
     color: #4b23ff;
-        text-shadow:
+    text-shadow:
     -1px -1px 0 black,
     1px -1px 0 black,
     -1px 1px 0 black,
@@ -73,14 +149,13 @@ h2{
 
 .dajare {
   display: flex;
-  gap: 20px;
   justify-content: center;
   gap: 20px;
 }
 
 .box {
   width: 120px;                /* 横幅 */
-  height: 100ox;              /* 縦長 */
+  height: 60px;              /* 縦長 */
   border: 2px solid #333;     /* 枠線 */
   justify-content: center; 
   background-color: aliceblue;
@@ -88,6 +163,35 @@ h2{
   display: flex; 
   font-size: 16px;
   font-family: sans-serif;
-   align-items: center;/* 縦中央揃え ←これが必要！ */
+  align-items: center;/* 縦中央揃え ←これが必要！ */
   text-align: center; 
 }
+
+.link {
+  font-size:20px;
+  display: flex;
+  justify-content: center; /* 水平方向の中央に配置 */
+  gap: 45px;    /* 各項目間の隙間を作る（お好みで） */ 
+  list-style: none;  /* リストの黒丸や余白をリセット */
+  padding: 0;
+}
+
+.link a {
+  color:rgb(0, 0, 0);
+  display: inline-block; /* transformを適用できるようにする */
+  transition: transform 1.5s; /* 変化を滑らかにする */
+}
+
+.link a:hover {
+  transform: scale(2); /* n倍に拡大する */
+  color: rgb(255, 0, 247)
+}
+
+.link a img {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/*6/16 鳩png導入時、巨大鳩の出現により、introduceの文字がずれてしまった。現状、問題はないが、いづれ書き直しが必要になることが想定される*/

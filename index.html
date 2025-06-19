@@ -9,17 +9,31 @@
 </head>
 
 <body>
-    <div class="jin">
-        <div style="position: relative; display: inline-block;">
-            <img src="UmaShika.png" class="UmaShika" alt="画像">
-            <h1 class="profile">手荷物を手に持つ</h1>
-            <h1 class="profile2">手荷物を手に持つ</h1>
-        </div>
-    </div>
+    <header class="ue">
+        <button id="gra">背景切り替え</button>
+        <button id="En">English</button>
+    </header>
 
-    <div class="introduce">
-        <p>横浜生まれ横浜育ち横浜在住ハマっ子</p>
-        <p>05-06世代/経済学部</p>
+    <div class="proll">
+        <div class="jin">
+            <div style="position: relative; display: inline-block;">
+                <img src="UmaShika.png" class="UmaShika" alt="画像">
+                <h1 class="profile">手荷物を手に持つ</h1>
+                <h1 class="profile2">手荷物を手に持つ</h1>
+            </div>
+        </div>
+
+        <div class="introduce">
+            <div class="oheya">
+                <p class="yoko">横浜生まれ横浜育ち横浜在住ハマっ子</p>
+                <p class="yoko2">横浜生まれ横浜育ち横浜在住ハマっ子</p>
+            </div>
+
+            <div class="oheya">
+                <p class="eco">05-06世代/経済学部</p>
+                <p class="eco2">05-06世代/経済学部</p>
+            </div>
+        </div>
     </div>
 
     <h2>お気に入りダジャレ三選</h2>
@@ -30,12 +44,51 @@
     </div>
 
     <h2>各種リンク</h2>
-    <ul>
-        <li><a href="https://x.com/tenumotsu" target="_blank">Twitter</a></li>
-        <li><a href="https://suzuri.jp/Te2motsu?utm_source=others&utm_medium=social&utm_campaign=shop_share" target="_blank"</li>Suzuri</li>
+    <ul class="link">
+        <li>
+            <a href="https://x.com/tenumotsu" target="_blank">
+                <img src="hato.png" alt="ぽっぽ">
+                Twitter</a></li>
+
+        <li><a href="https://suzuri.jp/Te2motsu?utm_source=others&utm_medium=social&utm_campaign=shop_share" target="_blank">Suzuri</a></li>
     </ul>
 
-     <script src="script.js" defer></script>
-    
+      <script>
+      // --- 背景色を順番に変えるJavaScript ---
+
+      // 1. 操作したいHTMLの要素を探してくる
+      const changeButton = document.getElementById('gra');
+      const bodyElement = document.body;
+
+      // 2. 背景色のリスト（配列）を用意する（好きな色やグラデーションを追加・変更できます！）
+      const backgroundList = [
+        'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)', //　日本　虹
+        'linear-gradient(to right, red, black)', // 南アジア　バイガ族　虹
+        'linear-gradient(to right, red, yellow, green, blue)', // インドネシア　フローレス島　虹
+    ];
+
+      // 3. 今、リストの何番目の色を表示しているかを覚えておくための変数（カウンター）
+        let currentIndex = 0;
+
+      // 4. ボタンがクリックされた時の処理を設定する
+        changeButton.addEventListener('click', () => {
+        // (A) 次に表示する色の番号を計算する
+        //     今の番号に1を足す。もしリストの長さ(4)と同じになったら0に戻る。
+        currentIndex = (currentIndex + 1) % backgroundList.length;
+
+        // (B) 計算した番号の背景を、実際にbodyに設定する
+        bodyElement.style.background = backgroundList[currentIndex];
+        });
+
+        /*ここからenglish*/
+
+        const enb = document.getElementById(`En`);
+        if (enb) {
+        enb.addEventListener('click', () => {
+        alert(`Sorry, I can not speak English;;`)
+      });
+    }
+    </script>
+
 </body>
 </html>
